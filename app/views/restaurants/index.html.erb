@@ -5,11 +5,11 @@
 
 <div class="container">
   <h1>Restaurants</h1>
-  <div id="restaurants">
+  <div id="restaurants" class=" bg-light">
     <% @restaurants.each do |restaurant| %>
       <%= render restaurant %>
       <p>
-        <%= link_to "Show this restaurant", restaurant %>
+        <%= link_to "See details", restaurant, class: "btn btn-primary" %>
       </p>
     <% end %>
   </div>
