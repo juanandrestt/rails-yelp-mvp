@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
-
+  before_action :set_restaurant, only: %i[ new create ]
 
   def index
     @reviews = Review.all
@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
   end
 
@@ -20,7 +19,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      redirect_to @review, notice: "Review was successfully created."
+      redirect_to @restaurant, notice: "Review was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,6 +41,10 @@ class ReviewsController < ApplicationController
   private
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     def review_params
