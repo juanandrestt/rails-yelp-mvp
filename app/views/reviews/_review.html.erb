@@ -1,17 +1,8 @@
-<div id="<%= dom_id review %>">
-  <p>
-    <strong>Rating:</strong>
-    <%= review.rating %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= review.content %>
-  </p>
-
-  <p>
-    <strong>Restaurant:</strong>
-    <%= review.restaurant_id %>
-  </p>
-
+<div id="<%= dom_id review %>" class="d-flex bg-warning">
+    <div class="me-3">
+        <strong>Rating:</strong> <%= review.rating %>
+    </div>
+    <div>
+        <strong>Content:</strong> <%= review.content %>
+    </div>
 </div>

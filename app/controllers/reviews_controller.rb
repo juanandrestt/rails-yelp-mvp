@@ -9,19 +9,16 @@ class ReviewsController < ApplicationController
   def show
   end
 
-  def new
-    @review = Review.new
-  end
-
   def edit
   end
 
   def create
     @review = Review.new(review_params)
+    @review.restaurant = @restaurant
     if @review.save
       redirect_to @restaurant, notice: "Review was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render "restaurants/show", status: :unprocessable_entity
     end
   end
 
