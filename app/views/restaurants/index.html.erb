@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Yelp MVP</a>
+  <%= link_to "New restaurant", new_restaurant_path, class: "btn btn-primary" %>
+</nav>
 
-<h1>Restaurants</h1>
-
-<div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "Show this restaurant", restaurant %>
-    </p>
-  <% end %>
+<div class="container">
+  <h1>Restaurants</h1>
+  <div id="restaurants">
+    <% @restaurants.each do |restaurant| %>
+      <%= render restaurant %>
+      <p>
+        <%= link_to "Show this restaurant", restaurant %>
+      </p>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New restaurant", new_restaurant_path %>
